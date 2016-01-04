@@ -26,6 +26,6 @@
   "homepage": "https://github.com/evi-snowm/cert-downloader",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "2.2.x"
+    "mocha": "2.3.x"
   }
 }
