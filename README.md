@@ -54,9 +54,9 @@ certDl.verify(file, function(error, output) {
   });
 ```
 
-##API
+## API
 
-###CertDownloader([options])
+### CertDownloader([options])
 Construct a new CertDownloader.
  
 You will always need to call this first. `options` Overrides one or several defaults and should be in JSON format with any of the following options:
@@ -65,17 +65,17 @@ You will always need to call this first. `options` Overrides one or several defa
  * `url`     : URL to download the certificate from (default is `http://www.apple.com/appleca/AppleIncRootCertificate.cer`)
  * `cache`   : path to cache location (a.k.a. where to keep the certificates locally, by default this is the operating system's default directory for temp files)
 
-###cert(callback)
+### cert(callback)
 Retrieve the certificate.
 
 Attempts to download a missing certificate and returns the path to said certificate if available (either cached or downloaded). The callback gets two arguments (err, path), where path is a string to the location of the certificate.
 
-###pem(callback)
+### pem(callback)
 Retrieve the certificate in PEM format.
 
 Attempts to download and convert a missing certificate and returns the path to said certificate if available (either cached or converted). The callback gets two arguments (err, path), where path is a string to the location of the certificate.
 
-###verify(file, callback)
+### verify(file, callback)
 Verifies a file against the certificate.
 
 Attempts to download and convert a missing certificate and returns the content of the file if successfully verified. The callback gets two arguments (err, output), where output is the content of the file if successfully verified.
