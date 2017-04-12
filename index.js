@@ -39,7 +39,7 @@ function CertDownloader(options) {
     this.fs = require('fs');
     this.util = require('util');
     this.certName = 'AppleIncRootCertificate.cer';
-    this.rootUrl = 'http://www.apple.com/appleca/AppleIncRootCertificate.cer';
+    this.rootUrl = 'https://www.apple.com/appleca/AppleIncRootCertificate.cer';
     this.cachePath = require('os').tmpdir();
     if (options) {
         if (options.certName) {
@@ -65,10 +65,14 @@ function CertDownloader(options) {
 CertDownloader.prototype.cert = function (callback) {
     var _this = this;
     var certPath = require('path').join(_this.cachePath, _this.certName);
-    if (_this.fs.existsSync(certPath)) {
+    if (_this.fs.existsSync(certPath) && _this.fs.readFileSync(certPath).length) {
         callback(null, certPath);
     } else {
-        require('http').get(_this.rootUrl, function (res) {
+        require('https').get(_this.rootUrl, function (res) {
+            if (res.statusCode !== 200) {
+                callback(new Error(_this.rootUrl + ' statusCode is ' + res.statusCode + ', but expected 200.'));
+                return;
+            }
             var downloadStream = _this.fs.createWriteStream(certPath);
             res.pipe(downloadStream);
             return downloadStream.on('finish', function () {
@@ -93,7 +97,7 @@ CertDownloader.prototype.cert = function (callback) {
 CertDownloader.prototype.pem = function (callback) {
     var _this = this;
     var pemPath = require('path').join(_this.cachePath, _this.util.format('%s.pem', _this.certName.split('.')[0]));
-    if (_this.fs.existsSync(pemPath)) {
+    if (_this.fs.existsSync(pemPath) && _this.fs.readFileSync(pemPath).length) {
         callback(null, pemPath);
     } else {
         _this.cert(function (error, certPath) {
