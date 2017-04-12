@@ -39,7 +39,7 @@ function CertDownloader(options) {
     this.fs = require('fs');
     this.util = require('util');
     this.certName = 'AppleIncRootCertificate.cer';
-    this.rootUrl = 'http://www.apple.com/appleca/AppleIncRootCertificate.cer';
+    this.rootUrl = 'https://www.apple.com/appleca/AppleIncRootCertificate.cer';
     this.cachePath = require('os').tmpdir();
     if (options) {
         if (options.certName) {
@@ -68,7 +68,7 @@ CertDownloader.prototype.cert = function (callback) {
     if (_this.fs.existsSync(certPath)) {
         callback(null, certPath);
     } else {
-        require('http').get(_this.rootUrl, function (res) {
+        require('https').get(_this.rootUrl, function (res) {
             var downloadStream = _this.fs.createWriteStream(certPath);
             res.pipe(downloadStream);
             return downloadStream.on('finish', function () {
