@@ -1,4 +1,4 @@
-**Notice** This project was submitted to the NPM repo under an account of my former, no defunct, employer. I do not have access to this account or any of the available recovery methods. Since my new job is both stressful and in another language I am sadly not able to support this project. Please, feel free to clone, fork and play to your hearts content.
+**Notice** This project was submitted to the NPM repo under an account of my former, now defunct, employer. I do not have access to this account or any of the available recovery methods. Since my new job is both stressful and in other languages I am sadly not able to support this project. Please, feel free to clone, fork and play to your hearts content.
 
 # cert-downloader
 
@@ -8,8 +8,6 @@ Offered functionality:
 * Download certificate and store locally.
 * Convert certificate to PEM format.
 * Validate a file against the certificate.
-
-More information and links to source code: [http://evi-snowm.github.io/cert-downloader/](http://evi-snowm.github.io/cert-downloader/)
 
 **NOTE** OpenSSL or compatible must be installed on your system if you wish to use certificates in the PEM format.
 Without this tool, only the download function will work.
