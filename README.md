@@ -1,4 +1,6 @@
-# cert-downloader [![Build Status](https://travis-ci.org/evi-snowm/cert-downloader.svg?branch=develop)](https://travis-ci.org/evi-snowm/cert-downloader)
+**Notice** This project was submitted to the NPM repo under an account of my former, no defunct, employer. I do not have access to this account or any of the available recovery methods. Since my new job is both stressful and in another language I am sadly not able to support this project. Please, feel free to clone, fork and play to your hearts content.
+
+# cert-downloader
 
 This is a helper module that allows you to download an SSL certificate, by default that of Apple Inc..
 
